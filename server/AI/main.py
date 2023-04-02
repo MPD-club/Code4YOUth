@@ -13,7 +13,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow import keras
 # import keras
 
-lessons = [["бэкенд"], ["Гейм дев"], ["Дизайн"], ["Трейдинг"], ["Музыкант"]]
+lessons = [["Backend Developer"], ["Game Developer"], ["Designer"], ["trader"], ["musician"]]
 
 with open('./AI/Stroitel.txt', 'r', encoding='utf-8') as f:
     Stroitel = f.readlines()

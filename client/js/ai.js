@@ -6,7 +6,7 @@ $("#generate_btn").click(async function(){
         res = JSON.parse(data);
         console.log(res);
     }, 'text');
-    $("#answer").text(`вы на ${res['procent']}% - ${res['prof']}`);
+    $("#answer").text(`with a percentage of ${res['procent']}% you are - ${res['prof']}`);
     await $.get('http://127.0.0.1:5000/get-tests?skill='+res['prof'], function(data) {
         res = JSON.parse(data);
     }, 'text');
@@ -15,5 +15,5 @@ $("#generate_btn").click(async function(){
         id = key;
         sk = value["name"];
     })
-    $("#answer").append(`.Вы можете пройти тест - <a href="http://127.0.0.1:5500/client/test.html?id=${id}">${sk}</a> чтобы получить чек-лист`);
+    $("#answer").append(`.You can take the test - <a href="http://127.0.0.1:5500/client/test.html?id=${id}">${sk}</a> to get a checklist`);
 });

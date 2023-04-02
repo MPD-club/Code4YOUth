@@ -98,6 +98,9 @@ def get_articles():
 
 @app.route("/TTjrsK0NflCYaMKmc6yZ/logun")
 def login():
+    #  name = request.args.get('name_and_surname')
+    # password = request.args.get('pass')
+    #  user = Users(name = name, about_me= about_me, age = int(age), password = password, email = email, grade=grade,company = company)
     return redirect("http://127.0.0.1:5500/client/mainpageauth.html", code=302)
 
 @app.route("/TTjrsK0NflCYaMKmc6yZ/addfeedback/<userto>/<fromuser>/<stars>/<body>")
