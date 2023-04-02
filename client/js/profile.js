@@ -1,10 +1,21 @@
-const nameAndSurname = "Torossyan David"
-const age = 18
-const grade = "GameDev Middle"
-const company = "Company: No"
-const contribution = 777
+data = axios.get('http://127.0.0.1:5000/TTjrsK0NflCYaMKmc6yZ/get_user').then((res)=>{
 
+    document.getElementById("nameAndSurname").innerHTML = data['name']
+    document.getElementById("yearsold").innerHTML = data['age'] + " years old"
+    document.getElementById("nameOfCompany").innerHTML = data['company']
+    document.getElementsByClassName("hisGrade")[0].innerHTML = data['grade']
+    document.getElementsByClassName("hisGrade")[1].innerHTML = data['grade']
+    document.getElementsByClassName("raitingg").innerHTML = data['contribution']
+})
+//raitingg
 
+// const nameAndSurname = "Torossyan David"
+// const age = 18
+// const grade = "GameDev Middle"
+// const company = "Company: No"
+// const contribution = 777
+
+// http://127.0.0.1:5000/TTjrsK0NflCYaMKmc6yZ/get_user
 document.getElementById("nameAndSurname").innerHTML = nameAndSurname
 document.getElementById("yearsold").innerHTML = age + " years old"
 document.getElementById("nameOfCompany").innerHTML = company 

@@ -52,6 +52,8 @@ answers = {
     7:"uncorrect",
     8:"uncorrect"
 }
+
+
 lenOfTest = 7
 let questionNow = 1
 let nowAnswer = 0
@@ -97,7 +99,10 @@ function nextQuestion(){
         }
         else{
             console.log(answers);
-            window.location.href = "http://www.w3schools.com";
+            axios.post('http://localhost:3001/testanswers', {
+                "answers":answers
+            })
+            window.location.href = "http://127.0.0.1:5500/client/RoadMap.html#";
         }
     } catch (error) {
         window.location.href = "http://127.0.0.1:5500/client/RoadMap.html#";
