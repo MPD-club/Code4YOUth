@@ -78,6 +78,17 @@ def create_course():
     db.session.commit()
     return str(contrib.id)
 
+@app.route("/TTjrsK0NflCYaMKmc6yZ/get_user")
+def create_course():
+    data = {
+        'name':"Torossyan David",
+        "age":"18",
+        "grade":"GameDev Middle",
+        "company":"Company: No",
+        "contribution":"500",
+    }
+    return json.dumps(data)
+
 @app.route("/TTjrsK0NflCYaMKmc6yZ/create_course")
 def get_articles():
     contrib = Courses(name = "name")
@@ -116,7 +127,7 @@ def register_user():
             skill = Skils(user_id = user.id, skil_name = skill)
             db.session.add(skill)
             db.session.commit()
-    return redirect("http://127.0.0.1:5500/client/profile.html", code=302)
+    return redirect("http://127.0.0.1:5500/client/mainpageauth.html", code=302)
 
 @app.route("/TTjrsK0NflCYaMKmc6yZ/get_user_from_skill/<skilname>")
 def get_user_from_skill(skilname):
