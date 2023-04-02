@@ -63,8 +63,8 @@ async def review_answer_yes_or_now(message: types.Message,
     if answer == skip_message:
         await bot.send_message(
             message.from_user.id,
-            "Ты можешь оставить отзыв позже. "
-            "Для этого нажми в главном меню кнопку Мои встречи.",
+            "You can leave a review later. "
+            "To do this, click the My Appointments button in the main menu.",
             reply_markup=menu_markup(message)
         )
         await state.reset_state()
@@ -81,7 +81,7 @@ async def question_comment(message: types.Message):
     """Вопрос комментария к оценке."""
     await bot.send_message(
         message.from_user.id,
-        "Пожалуйста, введи комментарий к оценке (не более 500 символов).",
+        "Please enter a comment to the rating (no more than 500 characters).",
         reply_markup=review_skip()
     )
     await ReviewState.comment.set()
@@ -124,15 +124,15 @@ async def answer_review_grade(message: types.Message, state: FSMContext):
     if grade == skip_message:
         await bot.send_message(
             message.from_user.id,
-            "Ты можешь оставить отзыв позже. "
-            "Для этого нажми в главном меню кнопку Мои встречи.",
+            "You can leave a review later."
+            "To do this, click the My Appointments button in the main menu.",
             reply_markup=menu_markup(message)
         )
         await state.reset_state()
-        logger.info(f'Пользователь {message.from_user.id} отклонил '
-                    f'предоставление отзыва')
+        logger.info(f'User {message.from_user.id} declined '
+                    f'write feedbacks')
     elif not await validate_review_grade(grade):
-        await bot.send_message(message.from_user.id, "Введи оценку от 1 до 5")
+        await bot.send_message(message.from_user.id, "Enter a score from 1 to 5")
         return
     else:
         await state.update_data(grade=grade)

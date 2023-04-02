@@ -55,10 +55,10 @@ async def send_profile(message: types.Message):
         data['birthday'] = date_from_db_to_message(data['birthday'])
     await bot.send_message(
         message.from_user.id,
-        f"Имя: {data['name']}\n"
-        f"Дата рождения: {data['birthday']}\n"
-        f"О себе: {data['about']}\n"
-        f"Пол: {data['gender']}",
+        f"Name: {data['name']}\n"
+        f"Birthday: {data['birthday']}\n"
+        f"About me: {data['about']}\n"
+        f"Sex: {data['gender']}",
         reply_markup=edit_profile_markup()
     )
 
@@ -79,65 +79,19 @@ async def about_bot(message: types.Message):
                 f"запросил информацию о боте")
     await bot.send_message(
         message.from_user.id,
-        """*Добро пожаловать в бот для нетворкинга\.*\n
-С помощью бота проходят живые и онлайн встречи 1\-1 для студентов\
- и IT\-специалистов\. Каждую неделю по понедельникам великий рандом\
- подбирает пару\.  Тебе нужно самостоятельно договориться о встрече\
- и созвониться\.  Можно встретиться лично, если вы в одном городе\.\n
-Администратор @Loravel\n
+        """*Welcome to the networking bot\.*\n
+With the help of the bot, live and online meetings are held 1\-1 for students\
+and IT\-specialists\. Every week on Mondays the great random\
+picks up a pair of \.  You need to make an appointment on your own\
+and call\.  You can meet in person if you are in the same city\.\n
+Admin @Laravel\n
 __*FAQ*__\n
-__*Как подбирается пара?*__\n
-Пара выбирается рандомайзером каждый понедельник,\
- обычно это происходит утром\n
-__*Где проходят встречи?*__\n
-Обычно мы предлагаем проводить встречи в онлайне с помощью Zoom или\
- аналогичных программ\.\
- Но если вы живете в одном городе и готовы встретиться вживую\
-− это будет очень круто\.\n
-__*Обязательно ли идти на встречу?*__\n
-Каждую неделю бот готов выдать тебе собеседника\. Перед\
- распределением пар можно отказаться — если на предстоящей неделе\
- не складывается или нет настроения\. Для этого есть опция\
- "каникулы"\. Когда пара уже назначена, лучше не сливаться\. Если\
- не получается встретиться, напиши сообщение своему партнёру\.\
- Небольшое извинение всегда лучше, чем игнорирование\.\n
-__*Сколько длится встреча?*__\n
-Как договоритесь\. Обычно люди общаются 45−60 минут, а иногда\
- и трёх часов мало\n
-__*Я могу отказаться от участия в боте?*__\n
-Да, отказаться можно в любой момент\. Для этого нужно\
- остановить бота через функционал Telegram\. Чтобы вернуться, \
- нужно будет запустить его снова\.\n
- __*Что делать, если моя пара не отвечает?*__\n
-Найти новую пару в нашем уютном коммьюнити https://t\.me/\+Ai1RweqsyjFhNmFi\n
-__*Кто сделал этого бота?*__\n 
-Александр  
-17 когорта ЯП, курс Python plus back\-end  
-https://t\.me/AVFedorovich\n
-Алёна  
-12\.1 когорта ЯП, курс Графический дизайн  
-https://t\.me/jeikin  
-https://www\.behance\.net/jeikin\n
-Артём  
-50 когорта ЯП, курс Python back\-end  
-https://t\.me/Menshikovas\n
-Давид  
-https://david\-torossayn\.tmt4\.kz/\n
-Елена  
-14 когорта ЯП, курс QA  
-https://t\.me/helenailjina\n 
-Марина  
-43 когорта ЯП, курс QA  
-https://t\.me/trim3ka\n 
-Наталья  
-ЯП, курс QA  
-https://t\.me/Natali\_Vl\_tst\n
-Татьяна  
-31 когорта ЯП, курс QA  
-https://t\.me/Tatiana\_Assoum\n
-Юлиана  
-16 когорта ЯП, курс Менеджер проектов  
-https://t\.me/Loravel\n
+__*How is the pair selected?*__\n
+The pair is selected by a randomizer every Monday,\
+this usually happens in the morning\n
+__*Where are the meetings held?*__\n
+We usually offer to hold meetings online using Zoom or\
+similar programs\.\n
 *Удачи и отличных встреч\!\)*
 """,
         parse_mode="MarkdownV2",
@@ -184,7 +138,7 @@ async def my_pare_check(message: types.Message):
     if met_id is None:
         await bot.send_message(
             message.from_user.id,
-            "Ты не участвовал в последнем распределении."
+            "You didn't participate in the last distribution."
         )
     else:
         users = db_session.query(MetInfo). \
