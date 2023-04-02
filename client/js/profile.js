@@ -14,11 +14,11 @@ data = axios.get('http://127.0.0.1:5000/TTjrsK0NflCYaMKmc6yZ/get_user').then((re
 // const grade = "GameDev Middle"
 // const company = "Company: No"
 // const contribution = 777
-document.getElementById("nameAndSurname").innerHTML = nameAndSurname
-document.getElementById("yearsold").innerHTML = age + " years old"
-document.getElementById("nameOfCompany").innerHTML = company 
-document.getElementsByClassName("hisGrade")[0].innerHTML = grade
-document.getElementsByClassName("hisGrade")[1].innerHTML = grade
+// document.getElementById("nameAndSurname").innerHTML = nameAndSurname
+// document.getElementById("yearsold").innerHTML = age + " years old"
+// document.getElementById("nameOfCompany").innerHTML = company 
+// document.getElementsByClassName("hisGrade")[0].innerHTML = grade
+// document.getElementsByClassName("hisGrade")[1].innerHTML = grade
 
 
 
